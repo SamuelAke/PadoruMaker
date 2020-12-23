@@ -5,8 +5,8 @@ namespace SystemPadoru
 
     public class ChangeColorController : MonoBehaviour
     {
-        private GameObject objectToChange;
-        private int indexToChange;
+        public GameObject objectToChange;
+        public int indexToChange;
 
         public void SetttingController(GameObject objectToChange, int indexToChange)
         {
@@ -22,6 +22,17 @@ namespace SystemPadoru
             }
         }
 
+        public void SelectObject()
+        {
+            GameObject gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+            gameManager.GetComponent<GameManager>().SelectItemToColor(gameObject);
+        }
+
+        private void OnMouseDown()
+        {
+            SelectObject();
+        }
 
     }
 }
